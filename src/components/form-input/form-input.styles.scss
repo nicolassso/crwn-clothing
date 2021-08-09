@@ -2,8 +2,13 @@ $sub-color: grey;
 $main-color: black;
 
 @mixin shrinkLabel {
-  top: -14px;
-  font-size: 12px;
+  top: -18px;
+  font-size: 14px;
+  color: $main-color;
+}
+@mixin stayUp {
+  top: -18px;
+  font-size: 14px;
   color: $main-color;
 }
 
@@ -24,12 +29,16 @@ $main-color: black;
     border-bottom: 1px solid $sub-color;
     margin: 25px 0;
 
+
     &:focus {
       outline: none;
     }
 
     &:focus ~ .form-input-label {
       @include shrinkLabel();
+    }
+    &::placeholder:enabled ~ .form-input-label{
+      @include stayUp();
     }
   }
 
